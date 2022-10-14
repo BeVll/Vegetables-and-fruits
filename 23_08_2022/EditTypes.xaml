@@ -1,0 +1,23 @@
+﻿<Page x:Class="_23_08_2022.EditTypes"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:_23_08_2022"
+     mc:Ignorable="d" 
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      d:DesignHeight="576" d:DesignWidth="735"
+      Title="EditTypes">
+
+    <Grid Background="#22262B">
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <TextBlock Text="Edit types" FontSize="55" Foreground="#AEC2DB" HorizontalAlignment="Center" FontFamily="Comic Sans MS"/>
+            <Border Height="2" Background="#AEC2DB" Margin="0,10"/>
+            <TextBox x:Name="Name" materialDesign:HintAssist.Hint="Name" Width="250" Style="{DynamicResource MaterialDesignTextBox}" Padding="5"  Background="#181B1E" Foreground="#5A6471" FontFamily="Comic Sans MS" Margin="5"/>
+            <StackPanel Orientation="Horizontal">
+                <Button Content="Edit" Width="130" Margin="5" Click="Button_Click"/>
+                <Button Content="Cancel" Width="130" Margin="5" Click="Button_Click_1"/>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Page>

@@ -1,0 +1,154 @@
+﻿<Window x:Class="_23_08_2022.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:_23_08_2022"
+         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d"
+        Title="Goods" Height="600" Width="800" WindowStyle="None" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Topmost="True">
+    <Grid>
+
+        <Frame x:Name="pFrame" Margin="65,24,0,0" NavigationUIVisibility="Hidden"/>
+        <Grid   x:Name="nav_pnl"
+                    HorizontalAlignment="Left"
+                    Width="65"
+                    Background="#2E333A" Margin="0,0,0,0" Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="50"/>
+            </Grid.RowDefinitions>
+            <StackPanel x:Name="st_pnl">
+
+                <!--// Grid for the Menu Toggle Button //-->
+
+                <Grid Height="90">
+
+                    <!--// Menu title text //-->
+
+                    <TextBlock   Margin="90,21,0,0" Text="M E N U" Foreground="White" FontSize="22" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                    
+                    <ToggleButton Style="{DynamicResource MaterialDesignToolButton}" HorizontalAlignment="Left" Margin="12,25,0,0" Foreground="White" Width="40" Height="40" Padding="0" Click="Button_Click" Cursor="Hand">
+                        <materialDesign:PackIcon Kind="Menu" Width="40" Height="40"/>
+                        <ToggleButton.Triggers>
+
+                            <EventTrigger RoutedEvent="ToggleButton.Unchecked">
+
+                                <BeginStoryboard>
+
+                                    <Storyboard x:Name="HideStackPanel">
+
+                                        <DoubleAnimation    
+                                                
+                                                Storyboard.TargetName="nav_pnl"
+                                                Storyboard.TargetProperty="Width"
+                                                BeginTime="0:0:0"
+                                                From="230" To="65"
+                                                Duration="0:0:0.2">
+
+                                        </DoubleAnimation>
+
+                                    </Storyboard>
+
+                                </BeginStoryboard>
+
+                            </EventTrigger>
+
+                            <EventTrigger RoutedEvent="ToggleButton.Checked">
+
+                                <BeginStoryboard>
+
+                                    <Storyboard x:Name="ShowStackPanel">
+
+                                        <DoubleAnimation
+                                                
+                                                Storyboard.TargetName="nav_pnl"
+                                                Storyboard.TargetProperty="Width"
+                                                BeginTime="0:0:0"
+                                                From="65" To="230"
+                                                Duration="0:0:0.3">
+
+                                        </DoubleAnimation>
+
+                                    </Storyboard>
+
+                                </BeginStoryboard>
+
+                            </EventTrigger>
+
+                        </ToggleButton.Triggers>
+                    </ToggleButton>
+
+                </Grid>
+
+
+
+                <ListView  x:Name="LV" Background="Transparent" Grid.Row="0" BorderBrush="Transparent" ScrollViewer.HorizontalScrollBarVisibility="Disabled" SelectionChanged="LV_SelectionChanged">
+                    <!--// Товари //-->
+
+                    <ListViewItem HorizontalAlignment="Left" Margin="0,0,0,5" MouseLeftButtonDown="ListViewItem_MouseLeftButtonDown" >
+                        <StackPanel Orientation="Horizontal" Width="230">
+                            <materialDesign:PackIcon Kind="Shop" Foreground="#5ECAEC" Height="30" Width="30" Margin="9,0,0,0"/>
+                            <TextBlock Text="Goods" Foreground="White" FontSize="19" VerticalAlignment="Center" Margin="25,-2,0,0" FontFamily="Comic Sans MS"/>
+                        </StackPanel>
+                        
+                        <ListViewItem.ToolTip>
+                            <ToolTip x:Name="goods" Content="Goods"/>
+                        </ListViewItem.ToolTip>
+                    </ListViewItem>
+                    
+                    <!--// Кольори //-->
+                    <ListViewItem HorizontalAlignment="Left" Margin="0,0,0,5" MouseLeftButtonDown="ListViewItem_MouseLeftButtonDown">
+                        <StackPanel Orientation="Horizontal"
+                                        Width="230">
+                            <materialDesign:PackIcon Kind="Color" Height="30" Width="30" Margin="9,0,0,0" Foreground="#FED330"/>
+                            <TextBlock Text="Colors" Foreground="White" FontSize="19" VerticalAlignment="Center" Margin="25,-2,0,0" FontFamily="Comic Sans MS"/>
+                        </StackPanel>
+
+                        <ListViewItem.ToolTip>
+                            <ToolTip x:Name="colors" Content="Colors"/>
+                        </ListViewItem.ToolTip>
+                    </ListViewItem>
+
+                    <!--// Типи //-->
+
+                    <ListViewItem HorizontalAlignment="Left"  Margin="0,0,0,5" MouseLeftButtonDown="ListViewItem_MouseLeftButtonDown">
+                        <StackPanel Orientation="Horizontal" Width="230">
+                            <materialDesign:PackIcon Kind="FruitAnanas" Foreground="#FF5405" Height="30" Width="30" Margin="9,0,0,0"/>
+                            <TextBlock Text="Types" Foreground="White" FontSize="19" VerticalAlignment="Center" Margin="25,-2,0,0" FontFamily="Comic Sans MS"/>
+                        </StackPanel>
+
+                        <ListViewItem.ToolTip>
+                            <ToolTip x:Name="types" Content="Types"/>
+                        </ListViewItem.ToolTip>
+                    </ListViewItem>
+
+
+                   
+
+                  
+
+
+                </ListView>
+               
+            </StackPanel>
+
+
+        </Grid>
+        <Grid Height="24" VerticalAlignment="Top" Margin="0,0,0,0" Background="#2E333A" >
+            <TextBlock x:Name="PageTitle" Text="Goods" HorizontalAlignment="Center" FontWeight="Bold" VerticalAlignment="Center" Foreground="White" FontFamily="Comic Sans MS"/>
+            <StackPanel HorizontalAlignment="Right" Orientation="Horizontal" Margin="0,0,0,0">
+                <Button Style="{DynamicResource MaterialDesignFlatButton}" Foreground="#525B68" Width="25" Height="25" Padding="2" Click="Button_Click_3">
+                    <materialDesign:PackIcon Kind="Minus" Width="20" Height="20"/>
+                </Button>
+                <Button Style="{DynamicResource MaterialDesignFlatButton}" Foreground="#EB4C42" Width="25" Height="25" Padding="2" Click="Button_Click_1">
+                    <materialDesign:PackIcon Kind="Close" Width="20" Height="20"/>
+                </Button>
+                
+            </StackPanel>
+        </Grid>
+        
+    </Grid>
+    
+</Window>

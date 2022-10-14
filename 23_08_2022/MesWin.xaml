@@ -1,0 +1,31 @@
+﻿<Window x:Class="_23_08_2022.MesWin"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:_23_08_2022"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d"
+        Title="MesWin" Height="200" Width="400" WindowStyle="None" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Topmost="True" BorderThickness="2,2,2,2">
+    <Grid Background="#22262B">
+        <Grid Height="24" VerticalAlignment="Top" Margin="0,0,0,0" Background="#2E333A" >
+            <TextBlock x:Name="PageTitle" Text="Goods" HorizontalAlignment="Left" FontWeight="Bold" Margin="10,0" VerticalAlignment="Center" Foreground="White" FontFamily="Comic Sans MS"/>
+            <StackPanel HorizontalAlignment="Right" Orientation="Horizontal" Margin="0,0,0,0">
+                <Button Style="{DynamicResource MaterialDesignFlatButton}" Foreground="#525B68" Width="25" Height="25" Padding="2" Click="Button_Click_3">
+                    <materialDesign:PackIcon Kind="Minus" Width="20" Height="20"/>
+                </Button>
+                <Button Style="{DynamicResource MaterialDesignFlatButton}" Foreground="#EB4C42" Width="25" Height="25" Padding="2" Click="Button_Click_1">
+                    <materialDesign:PackIcon Kind="Close" Width="20" Height="20"/>
+                </Button>
+
+            </StackPanel>
+        </Grid>
+        <TextBlock x:Name="Mes" Text="Mes" Width="350" FontSize="18" HorizontalAlignment="Center" TextAlignment="Center" VerticalAlignment="Center" Foreground="#AEC2DB" Margin="10,0"/>
+        <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Center">
+            <Button Width="120" Content="Ok" Margin="30,10" Click="Button_Click"/>
+        </StackPanel>
+    </Grid>
+    <Window.Background>
+        <SolidColorBrush Color="Black"/>
+    </Window.Background>
+</Window>
